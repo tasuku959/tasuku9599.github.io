@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>合同手話会ホームページ</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
+
+  <!-- モーダル用CSS -->
+  <style>
+    .modal {       /* CSS：モーダルの背景 */
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {      /* CSS：モーダルの中身 */
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 450px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .close {        /* CSS：閉じるボタン */
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .ok {         /* 「OK」ボタン */
+      padding: 2px 24px;
+      color: white;
+      background-color: rgb(100, 190, 10);
+      text-decoration: none;
+      display: inline-block;
+      opacity: 0.8;
+      border-radius: 4px;
+      font-size: 20px;
+    }
+
+    .ok:active {
+      position: relative;
+      top: 5px;
+      box-shadow: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <div class="back_button_wrap">
+          <a href="index.html">
+            <img class="logo" src="JSLSlogo.png" alt="合同手話会のロゴ">
+          </a>
+          <span class="tooltip">トップページへ戻る</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <a href="Sign_language_materials.css" class="notice">次回のクラスお知らせ</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- トップ部分 -->
+  <div class="top-wrapper">
+    <div class="container">
+      <h1>合同手話会</h1>
+    </div>
+  </div>
+
+  <!-- レッスン一覧部分 -->
+  <div class="lesson-wrapper">
+    <div class="container">
+      <h1 class="lesson_heading">日本手話を学ぼう！！</h1>
+
+      <div class="lessons">
+        <div class="lesson">
+          <div class="lesson-icon">
+            <img src="lesson.png" class="img2" alt="クラス一覧">
+            <p></p>
+            <a href="class.html" class="btn class_list">クラス一覧</a>
+            <p class="txt-contents">初級・上級クラスのご案内<br>各クラスの内容は、<br>こちらからご確認いただけます。</p>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-icon">
+            <img src="self-introduction.png" class="img2" alt="手話資料">
+            <p></p>
+            <!-- モーダルを開くボタン -->
+            <button id="openModal" class="btn Materials">手話資料</button>
+            <p class="txt-contents">指文字・あいさつ・動物・疑問詞など、幅広いカテゴリーの手話表現を掲載しています。<br>興味のあるテーマからご覧いただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- モーダルHTML -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>  <!-- 「閉じる」ボタン -->
+      <h2>【注意】</h2>
+      <p>手話資料には、手話単語の表現のみが記載されています。<br>
+      文法や場面に応じた使い方、表現の使い分けについては、<br>
+      クラスにてご案内いたします。</p>
+      <a href="Sign_language_materials.html" class="ok">OK</a>
+    </div>
+  </div>
+
+
+  <!-- メッセージ部分 -->
+  <div class="message-wrapper">
+    <div class="container">
+      <p class="heading">さぁ、あなたも手話を身につけて手話べりしてみませんか？(^o^)/</p>
+      <a href="#" class="btn message">参加申込</a>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <img src="JSLSlogo.png" alt="">
+      <p>Learn to Sign Language, Learn to be Expression.</p>
+    </div>
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const modal = document.getElementById('modal');
+      const openBtn = document.getElementById('openModal');
+      const closeBtn = document.getElementById('closeModal');
+
+      openBtn.addEventListener('click', function () {
+        modal.style.display = 'block';
+      });
+
+      closeBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
